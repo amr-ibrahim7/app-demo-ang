@@ -1,0 +1,176 @@
+<div class="my-8 w-3/4 mx-auto max-w-md">
+
+  <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Register Now!!</h2>
+  @if(apiError){
+    <div class="text-red-500 text-sm mt-1 text-center ">{{apiError}}</div>
+  }
+  <div>{{apiError}}</div>
+  <form [formGroup]="registerForm" (ngSubmit)="register()" class="space-y-6">
+
+  <!-- {{registerForm.get('name')?.errors | json}} -->
+    <div class="relative">
+      <input 
+        type="text" 
+        formControlName="name" 
+        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent" 
+        id="name" 
+        placeholder="Your Name"
+      />
+      <label 
+        for="name" 
+        class="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-500"
+      >
+        Name
+      </label>
+
+      @if(registerForm.get('name')?.errors && registerForm.get('name')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+         @if(registerForm.get('name')?.hasError?.('required')) {
+            <span>Name is required</span>
+          }
+          @if(registerForm.get('name')?.hasError?.('minlength')) {
+            <span>Name must be at least 3 characters long</span>
+          }
+          @if(registerForm.get('name')?.hasError?.('maxlength')) {
+            <span>Name cannot exceed 10 characters</span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="relative">
+      <input 
+        type="email" 
+        formControlName="email" 
+        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent" 
+        id="email" 
+        placeholder="Your Email"
+      />
+      <label 
+        for="email" 
+        class="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-500"
+      >
+        Email
+      </label>
+
+       @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+         @if(registerForm.get('email')?.hasError?.('required')) {
+            <span>Email is required</span>
+          }
+          @if(registerForm.get('email')?.hasError?.('email')) {
+            <span>Invalid Email</span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="relative">
+      <input 
+        type="password" 
+        formControlName="password" 
+        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent" 
+        id="password" 
+        placeholder="Your Password"
+      />
+      <label 
+        for="password" 
+        class="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-500"
+      >
+        Password
+      </label>
+
+        @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+         @if(registerForm.get('password')?.hasError?.('required')) {
+            <span>Password is required</span>
+          }
+          @if(registerForm.get('password')?.hasError?.('pattern')) {
+            <span>Invalid Password</span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="relative">
+      <input 
+        type="password" 
+        formControlName="confirmPassword" 
+        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent" 
+        id="confirmPassword" 
+        placeholder="again the password please!"
+      />
+      <label 
+        for="confirmPassword" 
+        class="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-500"
+      >
+        Confirm Password
+      </label>
+
+       @if(registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+         @if(registerForm.get('confirmPassword')?.hasError?.('required')) {
+            <span>ConfirmPassword is required</span>
+          }@else if(registerForm.get('confirmPassword')?.hasError?.('misMatch')) {
+            <span> Confirm Password should Match password!</span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="relative">
+      <input 
+        type="text" 
+        formControlName="address" 
+        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent" 
+        id="address" 
+        placeholder="Your address!"
+      />
+      <label 
+        for="address" 
+        class="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-500"
+      >
+        Address
+      </label>
+
+      @if(registerForm.get('address')?.errors && registerForm.get('address')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+         @if(registerForm.get('address')?.hasError?.('required')) {
+            <span>Address is required</span>
+          }
+          @if(registerForm.get('address')?.hasError?.('minlength')) {
+            <span>Address must be at least 5 characters long</span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="relative">
+      <input 
+        type="number" 
+        formControlName="phone" 
+        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent" 
+        id="phone" 
+        placeholder="Your Phone"
+      />
+      <label 
+        for="phone" 
+        class="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-500"
+      >
+        Phone
+      </label>
+      @if(registerForm.get('phone')?.errors && registerForm.get('phone')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+         @if(registerForm.get('phone')?.hasError?.('required')) {
+            <span>Phone is required</span>
+          }
+        </div>
+      }
+    </div>
+     <button 
+      class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+    >
+      Submit
+    </button>
+  </form>
+</div>

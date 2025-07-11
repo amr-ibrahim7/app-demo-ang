@@ -1,0 +1,73 @@
+<nav class="bg-black shadow-2xl border-b border-gray-700 text-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center h-20">
+      <div class="flex items-center">
+        <img [src]="logo" alt="Logo" class="h-16 w-auto" />
+      </div>
+
+      @if(isLoggedIn) {
+      <div class="flex space-x-2">
+        <a
+          routerLink="home"
+          routerLinkActive="bg-white text-gray-800 shadow-lg transform scale-105"
+          class="relative px-6 py-3 text-gray-300 font-medium text-sm rounded-lg transition-all duration-300 hover:bg-white hover:text-gray-800 hover:shadow-lg hover:scale-105 group overflow-hidden"
+        >
+          <span class="relative z-10">Home</span>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-gray-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          ></div>
+        </a>
+
+        <a
+          routerLink="about"
+          routerLinkActive="bg-white text-gray-800 shadow-lg transform scale-105"
+          class="relative px-6 py-3 text-gray-300 font-medium text-sm rounded-lg transition-all duration-300 hover:bg-white hover:text-gray-800 hover:shadow-lg hover:scale-105 group overflow-hidden"
+        >
+          <span class="relative z-10">About</span>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-gray-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          ></div>
+        </a>
+
+        <button
+          (click)="logOut()"
+          class="relative px-6 py-3 text-gray-300 font-medium text-sm rounded-lg transition-all duration-300 hover:bg-white hover:text-gray-800 hover:shadow-lg hover:scale-105 group overflow-hidden cursor-pointer"
+        >
+          <span class="relative z-10">Logout</span>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-gray-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          ></div>
+        </button>
+      </div>
+      } @else {
+      <div class="flex space-x-2">
+        <a
+          routerLink="login"
+          routerLinkActive="bg-white text-gray-800 shadow-lg transform scale-105"
+          class="relative px-6 py-3 text-gray-300 font-medium text-sm rounded-lg transition-all duration-300 hover:bg-white hover:text-gray-800 hover:shadow-lg hover:scale-105 group overflow-hidden"
+        >
+          <span class="relative z-10">Login</span>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-gray-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          ></div>
+        </a>
+
+        <a
+          routerLink="register"
+          routerLinkActive="bg-white text-gray-800 shadow-lg transform scale-105"
+          class="relative px-6 py-3 text-gray-300 font-medium text-sm rounded-lg transition-all duration-300 hover:bg-white hover:text-gray-800 hover:shadow-lg hover:scale-105 group overflow-hidden"
+        >
+          <span class="relative z-10">Register</span>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-gray-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          ></div>
+        </a>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div
+    class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-500/40 to-transparent"
+  ></div>
+</nav>
