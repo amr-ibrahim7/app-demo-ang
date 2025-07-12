@@ -1,6 +1,6 @@
 <div class="my-8 w-3/4 mx-auto max-w-md">
   <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Welcome Back!</h2>
-  
+
   @if(apiError) {
     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-center">
       {{apiError}}
@@ -8,18 +8,17 @@
   }
 
   <form [formGroup]="loginForm" (ngSubmit)="login()" class="space-y-6">
-    
-    <!-- Email Field -->
+
     <div class="relative">
-      <input 
-        type="email" 
-        formControlName="email" 
-        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent" 
-        id="email" 
+      <input
+        type="email"
+        formControlName="email"
+        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent"
+        id="email"
         placeholder="Your Email"
       />
-      <label 
-        for="email" 
+      <label
+        for="email"
         class="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-500"
       >
         Email
@@ -37,17 +36,16 @@
       }
     </div>
 
-    <!-- Password Field -->
     <div class="relative">
-      <input 
-        type="password" 
-        formControlName="password" 
-        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent" 
-        id="password" 
+      <input
+        type="password"
+        formControlName="password"
+        class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-colors placeholder-transparent"
+        id="password"
         placeholder="Your Password"
       />
-      <label 
-        for="password" 
+      <label
+        for="password"
         class="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-500"
       >
         Password
@@ -65,17 +63,15 @@
       }
     </div>
 
-    <!-- Login Button -->
     <button
       class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
     >
     Login
     </button>
 
-    <!-- Register Link -->
     <div class="text-center">
       <p class="text-gray-600">
-        Don't have an account? 
+        Don't have an account?
         <a routerLink="/register" class="text-blue-600 hover:text-blue-800 font-medium">
           Register here
         </a>

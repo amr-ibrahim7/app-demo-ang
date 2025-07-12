@@ -1,7 +1,13 @@
 <app-navbar />
 
+<h2>{{ "hello" | translate }}</h2>
 
-<div class="container">
+<button class="p-4 m-4 bg-red-500 cursor-pointer" (click)="useLanguage('en')">en</button>
+<br />
+<button class="p-4 m-4 bg-green-500 cursor-pointer" (click)="useLanguage('ar')">ar</button>
+<br />
+<router-outlet />
 
-  <router-outlet />
-</div>
+<!-- <div class="container">
+
+</div> -->

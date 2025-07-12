@@ -17,7 +17,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule,JsonPipe],
+  imports: [ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -44,7 +44,7 @@ constructor() {
   register() {
     console.log(this.registerForm);
     if(this.registerForm.valid) {
-      // Api call 
+      // Api call
       this.apiError = ''; // Reset error message
       this._authService.register(this.registerForm.value).subscribe({
         next: (response) => {
